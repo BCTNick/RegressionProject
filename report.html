@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Nicola Scognamiglio">
+
+<title>Causes of Early School Leaving in the EU: A Quantitative Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="report_files/libs/clipboard/clipboard.min.js"></script>
+<script src="report_files/libs/quarto-html/quarto.js"></script>
+<script src="report_files/libs/quarto-html/popper.min.js"></script>
+<script src="report_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="report_files/libs/quarto-html/anchor.min.js"></script>
+<link href="report_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="report_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="report_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="report_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="report_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="report_files/libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+<script src="report_files/libs/tabwid-1.1.3/tabwid.js"></script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#causes-of-early-school-leaving-in-scientific-literature" id="toc-causes-of-early-school-leaving-in-scientific-literature" class="nav-link" data-scroll-target="#causes-of-early-school-leaving-in-scientific-literature"><span class="header-section-number">2</span> Causes of Early School Leaving in Scientific Literature</a>
+  <ul class="collapse">
+  <li><a href="#psychological-and-individual-factors" id="toc-psychological-and-individual-factors" class="nav-link" data-scroll-target="#psychological-and-individual-factors"><span class="header-section-number">2.1</span> Psychological and Individual Factors</a></li>
+  <li><a href="#cultural-and-social-factors" id="toc-cultural-and-social-factors" class="nav-link" data-scroll-target="#cultural-and-social-factors"><span class="header-section-number">2.2</span> Cultural and Social Factors</a></li>
+  <li><a href="#economic-factors" id="toc-economic-factors" class="nav-link" data-scroll-target="#economic-factors"><span class="header-section-number">2.3</span> Economic Factors</a></li>
+  <li><a href="#demographic-factors" id="toc-demographic-factors" class="nav-link" data-scroll-target="#demographic-factors"><span class="header-section-number">2.4</span> Demographic Factors</a></li>
+  </ul></li>
+  <li><a href="#the-quantitative-analysis" id="toc-the-quantitative-analysis" class="nav-link" data-scroll-target="#the-quantitative-analysis"><span class="header-section-number">3</span> The Quantitative Analysis</a>
+  <ul class="collapse">
+  <li><a href="#data-collection-and-characteristicsristics" id="toc-data-collection-and-characteristicsristics" class="nav-link" data-scroll-target="#data-collection-and-characteristicsristics"><span class="header-section-number">3.1</span> Data Collection and Characteristicsristics</a></li>
+  <li><a href="#response-variable" id="toc-response-variable" class="nav-link" data-scroll-target="#response-variable"><span class="header-section-number">3.2</span> Response variable</a></li>
+  <li><a href="#explanatory-variables" id="toc-explanatory-variables" class="nav-link" data-scroll-target="#explanatory-variables"><span class="header-section-number">3.3</span> Explanatory variables</a></li>
+  </ul></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">4</span> Results</a>
+  <ul class="collapse">
+  <li><a href="#multiple-regression-model" id="toc-multiple-regression-model" class="nav-link" data-scroll-target="#multiple-regression-model"><span class="header-section-number">4.1</span> Multiple Regression Model</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">5</span> Conclusion</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="report.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Causes of Early School Leaving in the EU: A Quantitative Analysis</h1>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Nicola Scognamiglio <a href="mailto:nicol.scognamiglio@studenti.unina.it" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="www.unina.it">
+            Università degli Studi di Napoli - Federico II
+            </a>
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="block-title">Abstract</div>
+    <p>This study examines the causes of early school leaving (ESL) in the European Union (EU) through a quantitative analysis, employing a multiple regression model to identify key contributing factors. Drawing on comprehensive data and previous research, this analysis investigates the impact of socioeconomic status, educational system characteristics, and individual student attributes on ESL rates across EU member states. The findings reveal that socioeconomic factors, particularly education levels of adults and sectors where people work, significantly influence ESL rates.</p>
+  </div>
+</div>
+
+
+</header>
+
+
+<section id="introduction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<p>Education is the main factor in the so-called Social Elevator, which is the integration between the socio-economic classes that form the productive fabric of the country. It is therefore the most important element that enables the individual to escape poverty <span class="citation" data-cites="nowayback">(<a href="#ref-nowayback" role="doc-biblioref">Byrne and Smyth 2010</a>)</span>. In fact, the vast majority of studies have shown that it is especially tertiary education that levels the strata of society. But still, to get to university there is a need to have completed the entire secondary education. For this reason, in the welfare states or at least in nations with the rule of law, which aim at reducing inequality, schooling is compulsory for young people.</p>
+<p>Despite the crucial role of education, many students in the European Union still leave school early, failing to complete their secondary education. This phenomenon, known as early school leaving, presents a significant challenge to the goal of reducing social inequality and improving socio-economic mobility within the EU. Understanding the causes of early school leaving in this context is essential for developing effective policies and interventions to keep students engaged and enrolled through the completion of their education.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="report_files/figure-html/mappa%20esl-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Early School Levers in the EU</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Research has identified several factors that contribute to early school leaving. These factors include academic struggles, negative school experiences, socio-economic background, and school policies such as ability grouping. Students with lower reading levels at the start of secondary education are particularly vulnerable to dropping out. Early educational failures and lack of support for academic difficulties play a significant role in this issue, as do the broader school environment and practices that may alienate or inadequately address the needs of struggling students.</p>
+<p>While there are many non-quantifiable factors that influence early school leaving, this study focuses on the causes for which we have data, providing a quantitative analysis of the issue. By examining measurable factors, we aim to offer a clear and evidence-based understanding of the patterns and determinants of early school leaving in the European Union.</p>
+<p>Given the complexity and multifaceted nature of early school leaving, it is critical to explore the various underlying causes comprehensively. The next section will review the scientific literature to provide a detailed analysis of these causes, drawing on recent studies and empirical evidence within the European Union context.</p>
+</section>
+<section id="causes-of-early-school-leaving-in-scientific-literature" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Causes of Early School Leaving in Scientific Literature</h1>
+<p>To best understand the causes of ESL, a multidisciplinary approach, both theoretical and empirical (wherever possible), is needed. Therefore, we will list all the causes of ESL, which we will then try to translate into explanatory variables in Section 3 to study the phenomenon quantitatively.</p>
+<section id="psychological-and-individual-factors" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="psychological-and-individual-factors"><span class="header-section-number">2.1</span> Psychological and Individual Factors</h2>
+<p>Students with low cognitive ability show a high susceptibility to ESL: lack of achievement and demonstrated poor performance demotivate the individual to continue with schooling <span class="citation" data-cites="causesruralarea">(<a href="#ref-causesruralarea" role="doc-biblioref">Bosoanca 2021</a>)</span>. In fact, studies highlight that students with lower reading levels at the onset of second-level education are more prone to dropping out in subsequent years. Early school leaving is often rooted in initial educational failures and academic struggles, emphasizing the necessity for comprehensive educational policies across all sectors <span class="citation" data-cites="nowayback">(<a href="#ref-nowayback" role="doc-biblioref">Byrne and Smyth 2010</a>)</span>.</p>
+<p>Yet, early school leaving is influenced not only by academic underachievement but also by the school’s response to these challenges. Notably, some students felt neglected in academically engaged schools, while others faced concentrated academic difficulties and misbehavior in specific classes, frequently due to ability grouping practices <span class="citation" data-cites="nowayback">(<a href="#ref-nowayback" role="doc-biblioref">Byrne and Smyth 2010</a>)</span>.</p>
+</section>
+<section id="cultural-and-social-factors" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="cultural-and-social-factors"><span class="header-section-number">2.2</span> Cultural and Social Factors</h2>
+<p>The role of the family is crucial in students’ school life, not only because of the economic factor but also because of the cultural factor. If no family member has a college degree, it is very likely that their children will not go to college either. In addition, the children of single parents have a high probability of being ESLs. If one member in the family unit has already left school, the individual being considered will have a high probability of following the same path <span class="citation" data-cites="bitsakos2021causes">(<a href="#ref-bitsakos2021causes" role="doc-biblioref">Bitsakos 2021</a>)</span>.</p>
+<p>Then there is the social context</p>
+</section>
+<section id="economic-factors" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="economic-factors"><span class="header-section-number">2.3</span> Economic Factors</h2>
+<p>The risk of students dropping out of school is highest among those who have parents with low levels of education but only if those parents have low incomes <span class="citation" data-cites="bitsakos2021causes">(<a href="#ref-bitsakos2021causes" role="doc-biblioref">Bitsakos 2021</a>)</span>. This happens because young people are induced to contribute to family income; this dynamic especially affects working-class boys <span class="citation" data-cites="nowayback">(<a href="#ref-nowayback" role="doc-biblioref">Byrne and Smyth 2010</a>)</span>. This pattern ends up in a vicious cycle that prevents social climbing: most low-educated individuals are more likely to get a low-income job and so on, especially in a shrinking market.</p>
+<p>Turning to the macro level, in fact, low-educated people not only fail to climb out of poverty, but also fail to contribute to the growth of the economic system in which they are immersed.</p>
+</section>
+<section id="demographic-factors" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="demographic-factors"><span class="header-section-number">2.4</span> Demographic Factors</h2>
+<p>Higher dropout rates are observed among minority groups, specifically immigrant students. For newcomer students, dropout rates are not linked to mobility or emigration but may be related to factors like age at immigration, language barriers, school experiences, or broader social issues <span class="citation" data-cites="nowayback">(<a href="#ref-nowayback" role="doc-biblioref">Byrne and Smyth 2010</a>)</span>.</p>
+<p>Additionally, according to some research, pupils are much less likely to drop out of school if there is more homogeneity within the structure, both economic and ethnic <span class="citation" data-cites="causesruralarea">(<a href="#ref-causesruralarea" role="doc-biblioref">Bosoanca 2021</a>)</span>. Moreover, according to <span class="citation" data-cites="de2012comparing">De Witte and Van Klaveren (<a href="#ref-de2012comparing" role="doc-biblioref">2012</a>)</span>, there are more cases of school dropouts in rural areas than in areas with another degree of urbanization, such as medium and large cities.</p>
+</section>
+</section>
+<section id="the-quantitative-analysis" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> The Quantitative Analysis</h1>
+<p>The quantitative analysis that you will want to conduct below will be a multiple linear regression model: the goal will be to find significant causes of ESL among demographic and socioeconomic characteristics of the population.</p>
+<section id="data-collection-and-characteristicsristics" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="data-collection-and-characteristicsristics"><span class="header-section-number">3.1</span> Data Collection and Characteristicsristics</h2>
+<p>Each unit analyzed is a NUTS 2 region of the European Union; they may be “Provincies/Provinces” for Belgium, “Comunididades y ciudades autónomas” for Spain, “Régions” for France, “Länder” for Austria, and “Regioni” for Italy. NUTS 2 regions have populations ranging from 800,000 to 3 million, with a few exceptions. If no appropriately sized administrative units exist in a member state, this level is formed by aggregating an appropriate number of smaller and contiguous administrative units. These units thus aggregated are called “nonadministrative units”. The current NUTS 2021 classification came into effect on January 1, 2021 and indicates 242 at NUTS level 2 <span class="citation" data-cites="nutsexpl">(<a href="#ref-nutsexpl" role="doc-biblioref">Gouardères 2024</a>)</span>.</p>
+<p>The year considered for our analysis is 2023 but since there were missing data for certain years and regions, we went back one year at a time until 2018 for the imputation of those data. Regions for which data could not be imputed were excluded from the dataset.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Excluded Regions from the Analysis</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Region</th>
+<th style="text-align: left;">Country</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Burgenland</td>
+<td style="text-align: left;">AT</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kärnten</td>
+<td style="text-align: left;">AT</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Voreio Aigaio</td>
+<td style="text-align: left;">EL</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dytiki Makedonia</td>
+<td style="text-align: left;">EL</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ipeiros</td>
+<td style="text-align: left;">EL</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Thessalia</td>
+<td style="text-align: left;">EL</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ionia Nisia</td>
+<td style="text-align: left;">EL</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Åland</td>
+<td style="text-align: left;">FI</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Limousin</td>
+<td style="text-align: left;">FR</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mayotte</td>
+<td style="text-align: left;">FR</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kontinentalna Hrvatska</td>
+<td style="text-align: left;">HR</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Valle d’Aosta/Vallée d’Aoste</td>
+<td style="text-align: left;">IT</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Malta</td>
+<td style="text-align: left;">MT</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Opolskie</td>
+<td style="text-align: left;">PL</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Świętokrzyskie</td>
+<td style="text-align: left;">PL</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Podlaskie</td>
+<td style="text-align: left;">PL</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Região Autónoma da Madeira</td>
+<td style="text-align: left;">PT</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bratislavský kraj</td>
+<td style="text-align: left;">SK</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>All data were collected from Eurostat Database.</p>
+</section>
+<section id="response-variable" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="response-variable"><span class="header-section-number">3.2</span> Response variable</h2>
+<p>“Early leavers are defined as individuals aged 18-24 who have completed at most a lower secondary education and were not in further education or training during the four weeks preceding the labour force survey (LFS)” <span class="citation" data-cites="eslexpl">(<a href="#ref-eslexpl" role="doc-biblioref">Eurostat 2024b</a>)</span>.</p>
+<p>The measure is expressed as a percentage of the total population aged between 18 and 24.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="report_files/figure-html/boxplot%20esl-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Box Plot of the Response Variable per Country</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="explanatory-variables" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="explanatory-variables"><span class="header-section-number">3.3</span> Explanatory variables</h2>
+<section id="mean-disposable-income" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="mean-disposable-income"><span class="header-section-number">3.3.1</span> Mean Disposable Income</h3>
+<p>“The disposable income of private households is the balance of primary income (operating surplus/mixed income plus compensation of employees plus property income received minus property income paid) and the redistribution of income in cash. These transactions comprise social contributions paid, social benefits in cash received, current taxes on income and wealth paid, as well as other current transfers. Disposable income does not include social transfers in kind coming from public administrations or non-profit institutions serving households” <span class="citation" data-cites="dispinc">(<a href="#ref-dispinc" role="doc-biblioref">Eurostat 2024a</a>)</span>.</p>
+<p>We took the disposable income and divided for the population, obtaining the mean. The measure is expressed in thousands of euros.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="report_files/figure-html/mappa%20income-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Mean Disposable income in the EU</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="report_files/figure-html/scatter%20income-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Scatterplot of Mean Disposable Income vs Early School Leaving</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="population-density" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="population-density"><span class="header-section-number">3.3.2</span> Population Density</h3>
+<p>Since, according to some studies, most of the ESL are concentrated in rural areas and thus outside the capital cities, we will take into account the population density of the regions concerned.</p>
+<p>“The ratio between the annual average population and the land area of the region. The land area concept (excluding inland waters) should be used wherever available; if not available then the total area, including inland waters (area of lakes and rivers) is used” <span class="citation" data-cites="density">(<a href="#ref-density" role="doc-biblioref">Eurostat 2024g</a>)</span>.</p>
+<p>The measure is expressed in hundreds of inhabitants per square kilometer.</p>
+</section>
+<section id="unemployment-rate" class="level3" data-number="3.3.3">
+<h3 data-number="3.3.3" class="anchored" data-anchor-id="unemployment-rate"><span class="header-section-number">3.3.3</span> Unemployment Rate</h3>
+<p>” […] unemployment rate represents unemployed persons as a percentage of the economically active population (i.e.&nbsp;labour force or sum of employed and unemployed). The indicator is based on the EU Labour Force Survey. Unemployed persons comprise persons aged 15-74 who were (all three conditions must be fulfilled simultaneously): 1. without work during the reference week; 2. currently available for work; 3. actively seeking work or who had found a job to start within a period of at most three months. The employed persons are those aged 15-64, who during the reference week did any work for pay, profit or family gain for at least one hour, or were not at work but had a job or business from which they were temporarily absent” <span class="citation" data-cites="unemployment">(<a href="#ref-unemployment" role="doc-biblioref">Eurostat 2024i</a>)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="report_files/figure-html/mappa%20unemployment-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Unemployment Rate</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="report_files/figure-html/scatter%20unemployment-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Scatterplot of Unemployment vs Early School Leaving</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="human-resources-in-science-and-technology" class="level3" data-number="3.3.4">
+<h3 data-number="3.3.4" class="anchored" data-anchor-id="human-resources-in-science-and-technology"><span class="header-section-number">3.3.4</span> Human Resources in Science and Technology</h3>
+<p>“Human resources in science and technology (HRST) as a share of the active population in the age group 15-74 at the regional NUTS 2 level. The data shows the active population in the age group 15-74 that is classified as HRST (i.e.&nbsp;having successfully completed an education at the third level or being employed in science and technology) as a percentage of total active population aged 15-74. HRST are measured mainly using the concepts and definitions laid down in the Canberra Manual, OECD, Paris, 1995” <span class="citation" data-cites="HRST">(<a href="#ref-HRST" role="doc-biblioref">Eurostat 2024d</a>)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="report_files/figure-html/mappa%20HRST-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Human Resources in Science and Technology(%)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="report_files/figure-html/scatter%20HRST-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Scatterplot of Human Resources in Science and Technology(%) vs Early School Leaving</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="over-25s-with-at-most-lower-secondary-education" class="level3" data-number="3.3.5">
+<h3 data-number="3.3.5" class="anchored" data-anchor-id="over-25s-with-at-most-lower-secondary-education"><span class="header-section-number">3.3.5</span> Over-25s with at most Lower Secondary Education</h3>
+<p>Since the educational attainment of parents and people in the context are very important for their influence on the pupil, we include the variable of the percentage of over-25s with at most lower secondary education.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="report_files/figure-html/mappa%20amLSE-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Over-25s with at most Lower Secondary Education(%)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="report_files/figure-html/scatter%20amLSE-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Scatterplot of Over-25s with at most Lower Secondary Education vs Early School Leaving</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="tourism" class="level3" data-number="3.3.6">
+<h3 data-number="3.3.6" class="anchored" data-anchor-id="tourism"><span class="header-section-number">3.3.6</span> Tourism</h3>
+<p>We created an indicator dividing the nights spent in a tourist accommodation by the population.</p>
+<p>“A night spent is each night a guest/tourist (resident or non-resident) actually spends (sleeps or stays) or is registered (his/her physical presence there being unnecessary) in a tourist accommodation establishment” <span class="citation" data-cites="nights">(<a href="#ref-nights" role="doc-biblioref">Eurostat 2024e</a>)</span>.</p>
+</section>
+<section id="weeks-of-holiday-from-school" class="level3" data-number="3.3.7">
+<h3 data-number="3.3.7" class="anchored" data-anchor-id="weeks-of-holiday-from-school"><span class="header-section-number">3.3.7</span> Weeks of holiday from School</h3>
+<p>The first dummy we used in the model concerns the weeks the student is away from school. The cut point we took is 10 weeks away from school, through the entire school-year.</p>
+</section>
+<section id="southern-europe" class="level3" data-number="3.3.8">
+<h3 data-number="3.3.8" class="anchored" data-anchor-id="southern-europe"><span class="header-section-number">3.3.8</span> Southern Europe</h3>
+<p>The other dummy variable used in the model is the region’s membership in the Southern European area. To examine potential differences in the relationship between the rate of early school leavers and European regions, a Chow test was conducted. The Chow test is utilized to investigate whether there exists a significant structural break between the regression model of Southern Europe region and a model with the rest of the regions. This is because historically this region has profoundly different characteristics than other European regions. We used to identify them the division made by the <span class="citation" data-cites="unsd">United_Nations_Statistics_Division (<a href="#ref-unsd" role="doc-biblioref">n.d.</a>)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="report_files/figure-html/mappa%20region-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>European Regions</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Summary of Chow Test</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">F value</th>
+<th style="text-align: right;">d.f.1</th>
+<th style="text-align: right;">d.f.2</th>
+<th style="text-align: right;">P value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">11.926</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">208</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The p-value of Chow’s test was found to be highly significant, which is why it was decided to adopt Southern Europe as a dummy variable.</p>
+<div style="page-break-after: always;"></div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Summary of the Quantitative Predictors</caption>
+<colgroup>
+<col style="width: 11%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">esl</td>
+<td style="text-align: left;">Min. : 1.300</td>
+<td style="text-align: left;">1st Qu.: 6.900</td>
+<td style="text-align: left;">Median : 8.700</td>
+<td style="text-align: left;">Mean : 9.922</td>
+<td style="text-align: left;">3rd Qu.:12.575</td>
+<td style="text-align: left;">Max. :24.600</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">disp_inc</td>
+<td style="text-align: left;">Min. : 8.164</td>
+<td style="text-align: left;">1st Qu.:14.590</td>
+<td style="text-align: left;">Median :17.921</td>
+<td style="text-align: left;">Mean :17.651</td>
+<td style="text-align: left;">3rd Qu.:20.825</td>
+<td style="text-align: left;">Max. :28.289</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">density</td>
+<td style="text-align: left;">Min. : 0.0350</td>
+<td style="text-align: left;">1st Qu.: 0.7248</td>
+<td style="text-align: left;">Median : 1.2350</td>
+<td style="text-align: left;">Mean : 3.6344</td>
+<td style="text-align: left;">3rd Qu.: 2.6850</td>
+<td style="text-align: left;">Max. :76.6000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">unemployment</td>
+<td style="text-align: left;">Min. : 1.700</td>
+<td style="text-align: left;">1st Qu.: 3.200</td>
+<td style="text-align: left;">Median : 5.100</td>
+<td style="text-align: left;">Mean : 6.093</td>
+<td style="text-align: left;">3rd Qu.: 7.475</td>
+<td style="text-align: left;">Max. :30.000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HRST</td>
+<td style="text-align: left;">Min. :21.60</td>
+<td style="text-align: left;">1st Qu.:39.15</td>
+<td style="text-align: left;">Median :47.20</td>
+<td style="text-align: left;">Mean :46.40</td>
+<td style="text-align: left;">3rd Qu.:52.58</td>
+<td style="text-align: left;">Max. :72.90</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">amLSE</td>
+<td style="text-align: left;">Min. : 1.80</td>
+<td style="text-align: left;">1st Qu.:11.93</td>
+<td style="text-align: left;">Median :17.55</td>
+<td style="text-align: left;">Mean :19.60</td>
+<td style="text-align: left;">3rd Qu.:24.85</td>
+<td style="text-align: left;">Max. :58.80</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tourism</td>
+<td style="text-align: left;">Min. : 0.6838</td>
+<td style="text-align: left;">1st Qu.: 2.7955</td>
+<td style="text-align: left;">Median : 4.3757</td>
+<td style="text-align: left;">Mean : 7.6196</td>
+<td style="text-align: left;">3rd Qu.: 7.6543</td>
+<td style="text-align: left;">Max. :110.4065</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="report_files/figure-html/correlation%20matrix-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Correlation Plot of Quantitative Predictors</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="results" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Results</h1>
+<section id="multiple-regression-model" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="multiple-regression-model"><span class="header-section-number">4.1</span> Multiple Regression Model</h2>
+<p>The primary objective was to analyze and predict the percentage of early school leavers across various EU regions. To achieve this, a multiple regression model was employed, with the response variable being the percentage of early school leavers. The explanatory variables were selected based on theoretical foundations and prior research indicating their potential impact on early school leaving rates.</p>
+<p>First of all, the model parameters were estimated using Ordinary Least Squares (OLS) method. The statistical significance of each explanatory variable was assessed using t-tests, and the overall model fit was evaluated using R-squared and adjusted R-squared values.</p>
+<p>Moreover, Variance Inflation Factors (VIFs) were calculated to check for multicollinearity among the explanatory variables. Variables with high VIFs were removed to reduce multicollinearity. Various models were compared using Adjusted RSquared criteria to select the most parsimonious model that provided the best fit to the data. The final multiple regression model, that will be shown in Section 4, included the most significant explanatory variables that collectively explained a substantial proportion of the variance in the percentage of early school leavers. The model coefficients were interpreted to understand the direction and magnitude of the relationships</p>
+<p>Finally, residual plots, normality tests and homoschedasticity test were examined to ensure that the residuals were randomly distributed and did not exhibit any patterns.</p>
+<section id="complete-regression" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="complete-regression"><span class="header-section-number">4.1.1</span> Complete Regression</h3>
+<p>Initially, Early School Leaving was analyzed in relation to all available explanatory variables. It was first decided to center the quantitative explanatory variables (not the dummies, of course) such that they all had for mean 0, to ensure greater interpretability in the results. The multiple regression model was specified as: <span class="math display">\[
+\text{Early School Leavers} = \beta_0 + \beta_1 \text{Mean Disposable Income} + \beta_2 \text{Population Density} + \]</span> <span class="math display">\[
++ \beta_3 \text{Unemployment Rate} + \beta_4 \text{Human Resources in Science and Technology} + \]</span> <span class="math display">\[
++ \beta_5 \text{Over 25 with at most Lower Secondary Education}+ \beta_6 \text {Tourism} + \]</span> <span class="math display">\[
++ \beta_7 \text {More than 10 weeks of Holyday from School} + \beta_8 \text {Southern Europe} + \epsilon \]</span></p>
+<div style="page-break-after: always;"></div>
+<p>We see that the significant covariates at the one-per-thousand level are the percentage of workers working in science and technology, which have a negative effect on school dropout, and the percentage of adults with at most lower secondary education, which has a positive effect instead.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="tabwid"><style>.cl-644c71e6{}.cl-64440592{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-644405a6{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-64473dac{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-64473dc0{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-644755f8{width:1.559in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64475602{width:0.88in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6447560c{width:1.287in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64475616{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64475617{width:0.4in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64475620{width:1.559in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64475621{width:0.88in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6447562a{width:1.287in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6447562b{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64475634{width:0.4in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64475635{width:1.559in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6447563e{width:0.88in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6447563f{width:1.287in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64475640{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64475648{width:0.4in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64475649{width:1.559in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64475652{width:0.88in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64475653{width:1.287in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6447565c{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64475666{width:0.4in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64475667{width:1.559in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64475668{width:0.88in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64475670{width:1.287in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6447567a{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6447567b{width:0.4in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64475684{width:1.559in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64475685{width:0.88in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6447568e{width:1.287in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6447568f{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64475698{width:0.4in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64475699{width:1.559in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-644756a2{width:0.88in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-644756ac{width:1.287in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-644756ad{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-644756b6{width:0.4in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-644756b7{width:1.559in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-644756b8{width:0.88in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-644756c0{width:1.287in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-644756c1{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-644756ca{width:0.4in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-644756cb{width:1.559in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-644756d4{width:0.88in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-644756d5{width:1.287in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-644756de{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-644756df{width:0.4in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-644756e8{width:1.559in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-644756e9{width:0.88in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-644756ea{width:1.287in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-644756eb{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-644756f2{width:0.4in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-644c71e6"><thead><tr style="overflow-wrap:break-word;"><th class="cl-644755f8"><p class="cl-64473dac"><span class="cl-64440592"></span></p></th><th class="cl-64475602"><p class="cl-64473dc0"><span class="cl-64440592">Estimate</span></p></th><th class="cl-6447560c"><p class="cl-64473dc0"><span class="cl-64440592">Standard Error</span></p></th><th class="cl-64475616"><p class="cl-64473dc0"><span class="cl-64440592">t value</span></p></th><th class="cl-64475616"><p class="cl-64473dc0"><span class="cl-64440592">Pr(&gt;|t|)</span></p></th><th class="cl-64475617"><p class="cl-64473dac"><span class="cl-64440592"></span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-64475620"><p class="cl-64473dac"><span class="cl-64440592">(Intercept)</span></p></td><td class="cl-64475621"><p class="cl-64473dc0"><span class="cl-64440592">11.035</span></p></td><td class="cl-6447562a"><p class="cl-64473dc0"><span class="cl-64440592">0.325</span></p></td><td class="cl-6447562b"><p class="cl-64473dc0"><span class="cl-64440592">33.946</span></p></td><td class="cl-6447562b"><p class="cl-64473dc0"><span class="cl-64440592">0.0000</span></p></td><td class="cl-64475634"><p class="cl-64473dac"><span class="cl-64440592">***</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-64475635"><p class="cl-64473dac"><span class="cl-64440592">disp_inc</span></p></td><td class="cl-6447563e"><p class="cl-64473dc0"><span class="cl-64440592">0.180</span></p></td><td class="cl-6447563f"><p class="cl-64473dc0"><span class="cl-64440592">0.087</span></p></td><td class="cl-64475640"><p class="cl-64473dc0"><span class="cl-64440592">2.063</span></p></td><td class="cl-64475640"><p class="cl-64473dc0"><span class="cl-64440592">0.0403</span></p></td><td class="cl-64475648"><p class="cl-64473dac"><span class="cl-64440592">  *</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-64475649"><p class="cl-64473dac"><span class="cl-64440592">density</span></p></td><td class="cl-64475652"><p class="cl-64473dc0"><span class="cl-64440592">0.047</span></p></td><td class="cl-64475653"><p class="cl-64473dc0"><span class="cl-64440592">0.028</span></p></td><td class="cl-6447565c"><p class="cl-64473dc0"><span class="cl-64440592">1.701</span></p></td><td class="cl-6447565c"><p class="cl-64473dc0"><span class="cl-64440592">0.0903</span></p></td><td class="cl-64475666"><p class="cl-64473dac"><span class="cl-64440592">  .</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-64475649"><p class="cl-64473dac"><span class="cl-64440592">unemployment</span></p></td><td class="cl-64475652"><p class="cl-64473dc0"><span class="cl-64440592">0.105</span></p></td><td class="cl-64475653"><p class="cl-64473dc0"><span class="cl-64440592">0.086</span></p></td><td class="cl-6447565c"><p class="cl-64473dc0"><span class="cl-64440592">1.230</span></p></td><td class="cl-6447565c"><p class="cl-64473dc0"><span class="cl-64440592">0.2201</span></p></td><td class="cl-64475666"><p class="cl-64473dac"><span class="cl-64440592">   </span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-64475667"><p class="cl-64473dac"><span class="cl-64440592">HRST</span></p></td><td class="cl-64475668"><p class="cl-64473dc0"><span class="cl-64440592">-0.178</span></p></td><td class="cl-64475670"><p class="cl-64473dc0"><span class="cl-64440592">0.033</span></p></td><td class="cl-6447567a"><p class="cl-64473dc0"><span class="cl-64440592">-5.364</span></p></td><td class="cl-6447567a"><p class="cl-64473dc0"><span class="cl-64440592">0.0000</span></p></td><td class="cl-6447567b"><p class="cl-64473dac"><span class="cl-64440592">***</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-64475667"><p class="cl-64473dac"><span class="cl-64440592">amLSE</span></p></td><td class="cl-64475668"><p class="cl-64473dc0"><span class="cl-64440592">0.261</span></p></td><td class="cl-64475670"><p class="cl-64473dc0"><span class="cl-64440592">0.037</span></p></td><td class="cl-6447567a"><p class="cl-64473dc0"><span class="cl-64440592">7.151</span></p></td><td class="cl-6447567a"><p class="cl-64473dc0"><span class="cl-64440592">0.0000</span></p></td><td class="cl-6447567b"><p class="cl-64473dac"><span class="cl-64440592">***</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-64475684"><p class="cl-64473dac"><span class="cl-64440592">tourism</span></p></td><td class="cl-64475685"><p class="cl-64473dc0"><span class="cl-64440592">-0.001</span></p></td><td class="cl-6447568e"><p class="cl-64473dc0"><span class="cl-64440592">0.019</span></p></td><td class="cl-6447568f"><p class="cl-64473dc0"><span class="cl-64440592">-0.054</span></p></td><td class="cl-6447568f"><p class="cl-64473dc0"><span class="cl-64440592">0.9571</span></p></td><td class="cl-64475698"><p class="cl-64473dac"><span class="cl-64440592">   </span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-64475699"><p class="cl-64473dac"><span class="cl-64440592">holydays_gr_10w1</span></p></td><td class="cl-644756a2"><p class="cl-64473dc0"><span class="cl-64440592">1.514</span></p></td><td class="cl-644756ac"><p class="cl-64473dc0"><span class="cl-64440592">0.841</span></p></td><td class="cl-644756ad"><p class="cl-64473dc0"><span class="cl-64440592">1.799</span></p></td><td class="cl-644756ad"><p class="cl-64473dc0"><span class="cl-64440592">0.0734</span></p></td><td class="cl-644756b6"><p class="cl-64473dac"><span class="cl-64440592">  .</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-644756b7"><p class="cl-64473dac"><span class="cl-64440592">region1</span></p></td><td class="cl-644756b8"><p class="cl-64473dc0"><span class="cl-64440592">-6.876</span></p></td><td class="cl-644756c0"><p class="cl-64473dc0"><span class="cl-64440592">1.039</span></p></td><td class="cl-644756c1"><p class="cl-64473dc0"><span class="cl-64440592">-6.620</span></p></td><td class="cl-644756c1"><p class="cl-64473dc0"><span class="cl-64440592">0.0000</span></p></td><td class="cl-644756ca"><p class="cl-64473dac"><span class="cl-64440592">***</span></p></td></tr></tbody><tfoot><tr style="overflow-wrap:break-word;"><td colspan="6" class="cl-644756cb"><p class="cl-64473dc0"><span class="cl-644405a6">Signif. codes: 0 &lt;= '***' &lt; 0.001 &lt; '**' &lt; 0.01 &lt; '*' &lt; 0.05</span></p></td></tr><tr style="overflow-wrap:break-word;"><td colspan="6" class="cl-644756e8"><p class="cl-64473dac"><span class="cl-64440592"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td colspan="6" class="cl-644756e8"><p class="cl-64473dac"><span class="cl-64440592">Residual standard error: 3.262 on 213 degrees of freedom</span></p></td></tr><tr style="overflow-wrap:break-word;"><td colspan="6" class="cl-644756e8"><p class="cl-64473dac"><span class="cl-64440592">Multiple R-squared: 0.4695, Adjusted R-squared: 0.4496</span></p></td></tr><tr style="overflow-wrap:break-word;"><td colspan="6" class="cl-644756e8"><p class="cl-64473dac"><span class="cl-64440592">F-statistic: 23.56 on 213 and 8 DF, p-value: 0.0000</span></p></td></tr></tfoot></table></div>
+</div>
+</div>
+<p>There are no outliers in the model and few observation with a high leverage.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="report_files/figure-html/residualsvsleverage-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Residuals vs Leverage</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="report_files/figure-html/residualsvsfitted-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Residuals vs Fitted Values</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The residual diagnostics indicated that the residuals follow a normal distribution, as confirmed by the Normality Tests.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="report_files/figure-html/qqplot-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>QQ-Plot</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="report_files/figure-html/normale-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Kernel Hitogram of Residuals</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Normality Tests of Residuals</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Shapiro-Wilk</th>
+<th style="text-align: right;">Jarque Bera</th>
+<th style="text-align: right;">Kolmogorov-Smirnov</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.0694527</td>
+<td style="text-align: right;">0.2296591</td>
+<td style="text-align: right;">0.4884887</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>However, issues of heteroscedasticity, multicollinearity, and autocorrelation are present.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="report_files/figure-html/analisi%20dei%20residui%20(omoschedasticita)-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Variance of Errors</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Homoschedasticity Tests of Residuals</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">BP.BP</th>
+<th style="text-align: right;">df.df</th>
+<th style="text-align: right;">p-value.BP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">20.36329</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0.0090456</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Correlation of Covariates</caption>
+<colgroup>
+<col style="width: 16%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 16%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">disp_inc</th>
+<th style="text-align: right;">density</th>
+<th style="text-align: right;">unemployment</th>
+<th style="text-align: right;">HRST</th>
+<th style="text-align: right;">amLSE</th>
+<th style="text-align: right;">tourism</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">disp_inc</td>
+<td style="text-align: right;">1.0000000</td>
+<td style="text-align: right;">0.1504446</td>
+<td style="text-align: right;">-0.3586956</td>
+<td style="text-align: right;">0.6164912</td>
+<td style="text-align: right;">-0.1415571</td>
+<td style="text-align: right;">0.0574963</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">density</td>
+<td style="text-align: right;">0.1504446</td>
+<td style="text-align: right;">1.0000000</td>
+<td style="text-align: right;">0.2589299</td>
+<td style="text-align: right;">0.2599644</td>
+<td style="text-align: right;">0.0763902</td>
+<td style="text-align: right;">-0.0662088</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">unemployment</td>
+<td style="text-align: right;">-0.3586956</td>
+<td style="text-align: right;">0.2589299</td>
+<td style="text-align: right;">1.0000000</td>
+<td style="text-align: right;">-0.2550457</td>
+<td style="text-align: right;">0.6472818</td>
+<td style="text-align: right;">-0.0050442</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">HRST</td>
+<td style="text-align: right;">0.6164912</td>
+<td style="text-align: right;">0.2599644</td>
+<td style="text-align: right;">-0.2550457</td>
+<td style="text-align: right;">1.0000000</td>
+<td style="text-align: right;">-0.4263103</td>
+<td style="text-align: right;">-0.1215436</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">amLSE</td>
+<td style="text-align: right;">-0.1415571</td>
+<td style="text-align: right;">0.0763902</td>
+<td style="text-align: right;">0.6472818</td>
+<td style="text-align: right;">-0.4263103</td>
+<td style="text-align: right;">1.0000000</td>
+<td style="text-align: right;">0.1484406</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">tourism</td>
+<td style="text-align: right;">0.0574963</td>
+<td style="text-align: right;">-0.0662088</td>
+<td style="text-align: right;">-0.0050442</td>
+<td style="text-align: right;">-0.1215436</td>
+<td style="text-align: right;">0.1484406</td>
+<td style="text-align: right;">1.0000000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>VIFs of Covariates</caption>
+<colgroup>
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 15%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 19%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">disp_inc</th>
+<th style="text-align: right;">density</th>
+<th style="text-align: right;">unemployment</th>
+<th style="text-align: right;">HRST</th>
+<th style="text-align: right;">amLSE</th>
+<th style="text-align: right;">tourism</th>
+<th style="text-align: right;">holydays_gr_10w</th>
+<th style="text-align: right;">region</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2.721469</td>
+<td style="text-align: right;">1.273166</td>
+<td style="text-align: right;">2.607498</td>
+<td style="text-align: right;">2.387714</td>
+<td style="text-align: right;">3.489364</td>
+<td style="text-align: right;">1.102973</td>
+<td style="text-align: right;">3.441148</td>
+<td style="text-align: right;">4.144876</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Durbin-Watson test</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Autocorrelation</th>
+<th style="text-align: right;">D-W Statistic</th>
+<th style="text-align: right;">p-value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.301</td>
+<td style="text-align: right;">1.394</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="regression-with-selected-variables" class="level3" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="regression-with-selected-variables"><span class="header-section-number">4.1.2</span> Regression with Selected Variables</h3>
+<p>To address these issues, an approach based on the adjusted R-squared criterion was adopted to select the explanatory variables that eventually were only 4: Population Density, Human Resources in Science and Technology, Adults with at most Lower Secondary Education and the Southern Region as dummy variable. This method was chosen to identify a subset of variables that would improve the model’s fit while mitigating the detected problems.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="report_files/figure-html/best%20subset-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Adjusted Rsquared Best Subset</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="report_files/figure-html/bic-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>BIC Best Subset</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In the revised model, with fewer explanatory variables (all found significant), the issues of heteroscedasticity and multicollinearity are resolved. Nonetheless, the problem of autocorrelation persists.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="tabwid"><style>.cl-64f9c288{}.cl-64f1dff0{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-64f1dffa{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-64f4db92{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-64f4db9c{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-64f4ee84{width:0.981in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4ee8e{width:0.88in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4ee8f{width:1.287in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4ee98{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4ee99{width:0.4in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4eea2{width:0.981in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4eea3{width:0.88in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4eeac{width:1.287in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4eead{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4eeb6{width:0.4in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4eec0{width:0.981in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4eec1{width:0.88in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4eec2{width:1.287in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4eeca{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4eecb{width:0.4in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4eed4{width:0.981in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4eed5{width:0.88in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4eede{width:1.287in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4eee8{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4eee9{width:0.4in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4eef2{width:0.981in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4eef3{width:0.88in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4eef4{width:1.287in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4eefc{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4ef06{width:0.4in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4ef07{width:0.981in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4ef10{width:0.88in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4ef11{width:1.287in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4ef1a{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4ef1b{width:0.4in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4ef1c{width:0.981in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4ef24{width:0.88in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4ef25{width:1.287in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4ef2e{width:0.752in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-64f4ef38{width:0.4in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-64f9c288"><thead><tr style="overflow-wrap:break-word;"><th class="cl-64f4ee84"><p class="cl-64f4db92"><span class="cl-64f1dff0"></span></p></th><th class="cl-64f4ee8e"><p class="cl-64f4db9c"><span class="cl-64f1dff0">Estimate</span></p></th><th class="cl-64f4ee8f"><p class="cl-64f4db9c"><span class="cl-64f1dff0">Standard Error</span></p></th><th class="cl-64f4ee98"><p class="cl-64f4db9c"><span class="cl-64f1dff0">t value</span></p></th><th class="cl-64f4ee98"><p class="cl-64f4db9c"><span class="cl-64f1dff0">Pr(&gt;|t|)</span></p></th><th class="cl-64f4ee99"><p class="cl-64f4db92"><span class="cl-64f1dff0"></span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-64f4eea2"><p class="cl-64f4db92"><span class="cl-64f1dff0">(Intercept)</span></p></td><td class="cl-64f4eea3"><p class="cl-64f4db9c"><span class="cl-64f1dff0">11.292</span></p></td><td class="cl-64f4eeac"><p class="cl-64f4db9c"><span class="cl-64f1dff0">0.288</span></p></td><td class="cl-64f4eead"><p class="cl-64f4db9c"><span class="cl-64f1dff0">39.163</span></p></td><td class="cl-64f4eead"><p class="cl-64f4db9c"><span class="cl-64f1dff0">0.0000</span></p></td><td class="cl-64f4eeb6"><p class="cl-64f4db92"><span class="cl-64f1dff0">***</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-64f4eec0"><p class="cl-64f4db92"><span class="cl-64f1dff0">HRST</span></p></td><td class="cl-64f4eec1"><p class="cl-64f4db9c"><span class="cl-64f1dff0">-0.154</span></p></td><td class="cl-64f4eec2"><p class="cl-64f4db9c"><span class="cl-64f1dff0">0.025</span></p></td><td class="cl-64f4eeca"><p class="cl-64f4db9c"><span class="cl-64f1dff0">-6.133</span></p></td><td class="cl-64f4eeca"><p class="cl-64f4db9c"><span class="cl-64f1dff0">0.0000</span></p></td><td class="cl-64f4eecb"><p class="cl-64f4db92"><span class="cl-64f1dff0">***</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-64f4eec0"><p class="cl-64f4db92"><span class="cl-64f1dff0">amLSE</span></p></td><td class="cl-64f4eec1"><p class="cl-64f4db9c"><span class="cl-64f1dff0">0.286</span></p></td><td class="cl-64f4eec2"><p class="cl-64f4db9c"><span class="cl-64f1dff0">0.031</span></p></td><td class="cl-64f4eeca"><p class="cl-64f4db9c"><span class="cl-64f1dff0">9.216</span></p></td><td class="cl-64f4eeca"><p class="cl-64f4db9c"><span class="cl-64f1dff0">0.0000</span></p></td><td class="cl-64f4eecb"><p class="cl-64f4db92"><span class="cl-64f1dff0">***</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-64f4eed4"><p class="cl-64f4db92"><span class="cl-64f1dff0">density</span></p></td><td class="cl-64f4eed5"><p class="cl-64f4db9c"><span class="cl-64f1dff0">0.060</span></p></td><td class="cl-64f4eede"><p class="cl-64f4db9c"><span class="cl-64f1dff0">0.026</span></p></td><td class="cl-64f4eee8"><p class="cl-64f4db9c"><span class="cl-64f1dff0">2.294</span></p></td><td class="cl-64f4eee8"><p class="cl-64f4db9c"><span class="cl-64f1dff0">0.0228</span></p></td><td class="cl-64f4eee9"><p class="cl-64f4db92"><span class="cl-64f1dff0">  *</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-64f4eef2"><p class="cl-64f4db92"><span class="cl-64f1dff0">region1</span></p></td><td class="cl-64f4eef3"><p class="cl-64f4db9c"><span class="cl-64f1dff0">-5.632</span></p></td><td class="cl-64f4eef4"><p class="cl-64f4db9c"><span class="cl-64f1dff0">0.768</span></p></td><td class="cl-64f4eefc"><p class="cl-64f4db9c"><span class="cl-64f1dff0">-7.331</span></p></td><td class="cl-64f4eefc"><p class="cl-64f4db9c"><span class="cl-64f1dff0">0.0000</span></p></td><td class="cl-64f4ef06"><p class="cl-64f4db92"><span class="cl-64f1dff0">***</span></p></td></tr></tbody><tfoot><tr style="overflow-wrap:break-word;"><td colspan="6" class="cl-64f4ef07"><p class="cl-64f4db9c"><span class="cl-64f1dffa">Signif. codes: 0 &lt;= '***' &lt; 0.001 &lt; '**' &lt; 0.01 &lt; '*' &lt; 0.05</span></p></td></tr><tr style="overflow-wrap:break-word;"><td colspan="6" class="cl-64f4ef1c"><p class="cl-64f4db92"><span class="cl-64f1dff0"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td colspan="6" class="cl-64f4ef1c"><p class="cl-64f4db92"><span class="cl-64f1dff0">Residual standard error: 3.271 on 217 degrees of freedom</span></p></td></tr><tr style="overflow-wrap:break-word;"><td colspan="6" class="cl-64f4ef1c"><p class="cl-64f4db92"><span class="cl-64f1dff0">Multiple R-squared: 0.4563, Adjusted R-squared: 0.4463</span></p></td></tr><tr style="overflow-wrap:break-word;"><td colspan="6" class="cl-64f4ef1c"><p class="cl-64f4db92"><span class="cl-64f1dff0">F-statistic: 45.53 on 217 and 4 DF, p-value: 0.0000</span></p></td></tr></tfoot></table></div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="report_files/figure-html/residualsvsleverage_sel-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Residuals vs Leverage</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="report_files/figure-html/residualsvsfitted_sel-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Residuals vs Fitted Values</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The residual diagnostics indicated that the residuals followed a normal distribution.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="report_files/figure-html/qqplot_sel-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>QQ-Plot</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="report_files/figure-html/normale_sel-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Kernel Hitogram of Residuals</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Normality Tests of Residuals</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Shapiro-Wilk</th>
+<th style="text-align: right;">Jarque Bera</th>
+<th style="text-align: right;">Kolmogorov-Smirnov</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.1565565</td>
+<td style="text-align: right;">0.2670419</td>
+<td style="text-align: right;">0.8021918</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="report_files/figure-html/analisi%20dei%20residui%20(omoschedasticita)_sel-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Variance of Errors</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Homoschedasticity Tests of Residuals</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">BP.BP</th>
+<th style="text-align: right;">df.df</th>
+<th style="text-align: right;">p-value.BP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">8.948471</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.0624004</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Correlation of Covariates</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">density</th>
+<th style="text-align: right;">HRST</th>
+<th style="text-align: right;">amLSE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">density</td>
+<td style="text-align: right;">1.0000000</td>
+<td style="text-align: right;">0.2599644</td>
+<td style="text-align: right;">0.0763902</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">HRST</td>
+<td style="text-align: right;">0.2599644</td>
+<td style="text-align: right;">1.0000000</td>
+<td style="text-align: right;">-0.4263103</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">amLSE</td>
+<td style="text-align: right;">0.0763902</td>
+<td style="text-align: right;">-0.4263103</td>
+<td style="text-align: right;">1.0000000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>VIFs of Covariates</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">HRST</th>
+<th style="text-align: right;">amLSE</th>
+<th style="text-align: right;">density</th>
+<th style="text-align: right;">region</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1.367354</td>
+<td style="text-align: right;">2.501637</td>
+<td style="text-align: right;">1.129234</td>
+<td style="text-align: right;">2.254174</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Durbin-Watson test</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Autocorrelation</th>
+<th style="text-align: right;">D-W Statistic</th>
+<th style="text-align: right;">p-value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.314</td>
+<td style="text-align: right;">1.371</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="conclusion" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Conclusion</h1>
+<section id="references" class="level3 unnumbered" data-number="5.0.1">
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">5.0.1 References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-bitsakos2021causes" class="csl-entry" role="listitem">
+Bitsakos, Nikolaos. 2021. <span>“CAUSES OF EARLY SCHOOL LEAVING AND PREVENTION MEASURES: SCHOOL DIRECTORS’INSIGHTS.”</span> <em>European Journal of Education Studies</em> 8 (5).
+</div>
+<div id="ref-causesruralarea" class="csl-entry" role="listitem">
+Bosoanca, Bianca. 2021. <span>“The Causes of School Drop-Out Among Scholars in Rural Areas.”</span> <em>Review of Socio-Economic Perspectives</em> 6 (202182): 59–65.
+</div>
+<div id="ref-nowayback" class="csl-entry" role="listitem">
+Byrne, Delma, and Emer Smyth. 2010. <span>“No Way Back? The Dynamics of Early School Leaving.”</span>
+</div>
+<div id="ref-de2012comparing" class="csl-entry" role="listitem">
+De Witte, Kristof, and Chris Van Klaveren. 2012. <span>“Comparing Students by a Matching Analysis–on Early School Leaving in Dutch Cities.”</span> <em>Applied Economics</em> 44 (28): 3679–90.
+</div>
+<div id="ref-dispinc" class="csl-entry" role="listitem">
+Eurostat. 2024a. <span>“Disposable Income of Private Households by NUTS 2 Regions.”</span> 2024. <a href="https://doi.org/10.2908/TGS00026">https://doi.org/10.2908/TGS00026</a>.
+</div>
+<div id="ref-eslexpl" class="csl-entry" role="listitem">
+———. 2024b. <span>“Early Leavers from Education and Training.”</span> 2024. <a href="https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Early_leavers_from_education_and_training">https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Early_leavers_from_education_and_training</a>.
+</div>
+<div id="ref-esl" class="csl-entry" role="listitem">
+———. 2024c. <span>“Early Leavers from Education and Training by Sex and NUTS 2 Regions.”</span> 2024. <a href="https://doi.org/10.2908/EDAT_LFSE_16">https://doi.org/10.2908/EDAT_LFSE_16</a>.
+</div>
+<div id="ref-HRST" class="csl-entry" role="listitem">
+———. 2024d. <span>“Human Resources in Science and Technology (HRST) by NUTS 2 Regions.”</span> 2024. <a href="https://doi.org/10.2908/tgs00038">https://doi.org/10.2908/tgs00038</a>.
+</div>
+<div id="ref-nights" class="csl-entry" role="listitem">
+———. 2024e. <span>“Nights Spent at Tourist Accommodation Establishments by NUTS 2 Regions.”</span> 2024. <a href="https://doi.org/10.2908/TGS00111">https://doi.org/10.2908/TGS00111</a>.
+</div>
+<div id="ref-popbyed" class="csl-entry" role="listitem">
+———. 2024f. <span>“Population by Educational Attainment Level, Sex and NUTS 2 Regions (.”</span> 2024. <a href="https://doi.org/10.2908/edat_lfse_04">https://doi.org/10.2908/edat_lfse_04</a>.
+</div>
+<div id="ref-density" class="csl-entry" role="listitem">
+———. 2024g. <span>“Population Density by NUTS 2 Region.”</span> 2024. <a href="https://doi.org/10.2908/TGS00024">https://doi.org/10.2908/TGS00024</a>.
+</div>
+<div id="ref-pop" class="csl-entry" role="listitem">
+———. 2024h. <span>“Population on 1 January by Age, Sex and NUTS 2 Region.”</span> 2024. <a href="https://doi.org/10.2908/DEMO_R_D2JAN">https://doi.org/10.2908/DEMO_R_D2JAN</a>.
+</div>
+<div id="ref-unemployment" class="csl-entry" role="listitem">
+———. 2024i. <span>“Unemployment Rate by NUTS 2 Regions.”</span> 2024. <a href="https://doi.org/10.2908/TGS00010">https://doi.org/10.2908/TGS00010</a>.
+</div>
+<div id="ref-nutsexpl" class="csl-entry" role="listitem">
+Gouardères, Frédéric. 2024. <span>“Nomenclatura Comune Delle Unità Territoriali Statistiche (NUTS).”</span> 2024. <a href="https://www.europarl.europa.eu/factsheets/it/sheet/99/nomenclatura-comune-delle-unita-territoriali-statistiche-nuts-">https://www.europarl.europa.eu/factsheets/it/sheet/99/nomenclatura-comune-delle-unita-territoriali-statistiche-nuts-</a>.
+</div>
+<div id="ref-minguez2013early" class="csl-entry" role="listitem">
+Mı́nguez, Almudena Moreno. 2013. <span>“The Early School Leaving in Europe: Approaching the Explanatory Factors.”</span> <em>New Horizons in Education</em> 61 (2).
+</div>
+<div id="ref-unsd" class="csl-entry" role="listitem">
+United_Nations_Statistics_Division. n.d. <span>“Standard Country or Area Codes for Statistical Use (M49).”</span> <a href="https://unstats.un.org/unsd/methodology/m49/">https://unstats.un.org/unsd/methodology/m49/</a>.
+</div>
+</div></section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
