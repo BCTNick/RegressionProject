@@ -1,0 +1,314 @@
+{
+    "sources": [
+        {
+            "author": [
+                {
+                    "family": "Byrne",
+                    "given": "Delma"
+                },
+                {
+                    "family": "Smyth",
+                    "given": "Emer"
+                }
+            ],
+            "id": "nowayback",
+            "issued": {
+                "date-parts": [
+                    [
+                        2010
+                    ]
+                ]
+            },
+            "publisher": "Liffey Press",
+            "title": "No way back? The dynamics of early school leaving",
+            "type": "article-journal"
+        },
+        {
+            "author": [
+                {
+                    "family": "Bosoanca",
+                    "given": "Bianca"
+                }
+            ],
+            "container-title": "Review of Socio-Economic Perspectives",
+            "id": "causesruralarea",
+            "issue": "202182",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "page": "59-65",
+            "publisher": "Reviewsep",
+            "title": "The causes of school drop-out among scholars in rural areas",
+            "type": "article-journal",
+            "volume": "6"
+        },
+        {
+            "author": [
+                {
+                    "family": "Bitsakos",
+                    "given": "Nikolaos"
+                }
+            ],
+            "container-title": "European Journal of Education Studies",
+            "id": "bitsakos2021causes",
+            "issue": "5",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "title": "CAUSES OF EARLY SCHOOL LEAVING AND PREVENTION MEASURES: SCHOOL DIRECTORS’INSIGHTS",
+            "title-short": "CAUSES OF EARLY SCHOOL LEAVING AND PREVENTION MEASURES",
+            "type": "article-journal",
+            "volume": "8"
+        },
+        {
+            "URL": "https://www.europarl.europa.eu/factsheets/it/sheet/99/nomenclatura-comune-delle-unita-territoriali-statistiche-nuts-",
+            "author": [
+                {
+                    "family": "Gouardères",
+                    "given": "Frédéric"
+                }
+            ],
+            "id": "nutsexpl",
+            "issued": {
+                "date-parts": [
+                    [
+                        2024
+                    ]
+                ]
+            },
+            "title": "Nomenclatura comune delle unità territoriali statistiche (NUTS)",
+            "type": "webpage"
+        },
+        {
+            "DOI": "10.2908/EDAT_LFSE_16",
+            "author": [
+                {
+                    "family": "Eurostat"
+                }
+            ],
+            "id": "esl",
+            "issued": {
+                "date-parts": [
+                    [
+                        2024
+                    ]
+                ]
+            },
+            "title": "Early leavers from education and training by sex and NUTS 2 regions",
+            "type": "webpage"
+        },
+        {
+            "URL": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Early_leavers_from_education_and_training",
+            "author": [
+                {
+                    "family": "Eurostat"
+                }
+            ],
+            "id": "eslexpl",
+            "issued": {
+                "date-parts": [
+                    [
+                        2024
+                    ]
+                ]
+            },
+            "title": "Early leavers from education and training",
+            "type": "webpage"
+        },
+        {
+            "DOI": "10.2908/TGS00026",
+            "author": [
+                {
+                    "family": "Eurostat"
+                }
+            ],
+            "id": "dispinc",
+            "issued": {
+                "date-parts": [
+                    [
+                        2024
+                    ]
+                ]
+            },
+            "title": "Disposable income of private households by NUTS 2 regions",
+            "type": "webpage"
+        },
+        {
+            "author": [
+                {
+                    "family": "Mı́nguez",
+                    "given": "Almudena Moreno"
+                }
+            ],
+            "container-title": "New Horizons in Education",
+            "id": "minguez2013early",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2013
+                    ]
+                ]
+            },
+            "title": "The early school leaving in europe: Approaching the explanatory factors.",
+            "title-short": "The early school leaving in europe",
+            "type": "article-journal",
+            "volume": "61"
+        },
+        {
+            "DOI": "10.2908/DEMO_R_D2JAN",
+            "author": [
+                {
+                    "family": "Eurostat"
+                }
+            ],
+            "id": "pop",
+            "issued": {
+                "date-parts": [
+                    [
+                        2024
+                    ]
+                ]
+            },
+            "title": "Population on 1 january by age, sex and NUTS 2 region",
+            "type": "webpage"
+        },
+        {
+            "DOI": "10.2908/TGS00024",
+            "author": [
+                {
+                    "family": "Eurostat"
+                }
+            ],
+            "id": "density",
+            "issued": {
+                "date-parts": [
+                    [
+                        2024
+                    ]
+                ]
+            },
+            "title": "Population density by NUTS 2 region",
+            "type": "webpage"
+        },
+        {
+            "DOI": "10.2908/TGS00010",
+            "author": [
+                {
+                    "family": "Eurostat"
+                }
+            ],
+            "id": "unemployment",
+            "issued": {
+                "date-parts": [
+                    [
+                        2024
+                    ]
+                ]
+            },
+            "title": "Unemployment rate by NUTS 2 regions",
+            "type": "webpage"
+        },
+        {
+            "DOI": "10.2908/tgs00038",
+            "author": [
+                {
+                    "family": "Eurostat"
+                }
+            ],
+            "id": "HRST",
+            "issued": {
+                "date-parts": [
+                    [
+                        2024
+                    ]
+                ]
+            },
+            "title": "Human resources in science and technology (HRST) by NUTS 2 regions",
+            "type": "webpage"
+        },
+        {
+            "DOI": "10.2908/edat_lfse_04",
+            "author": [
+                {
+                    "family": "Eurostat"
+                }
+            ],
+            "id": "popbyed",
+            "issued": {
+                "date-parts": [
+                    [
+                        2024
+                    ]
+                ]
+            },
+            "title": "Population by educational attainment level, sex and NUTS 2 regions (",
+            "type": "webpage"
+        },
+        {
+            "author": [
+                {
+                    "family": "De Witte",
+                    "given": "Kristof"
+                },
+                {
+                    "family": "Van Klaveren",
+                    "given": "Chris"
+                }
+            ],
+            "container-title": "Applied Economics",
+            "id": "de2012comparing",
+            "issue": "28",
+            "issued": {
+                "date-parts": [
+                    [
+                        2012
+                    ]
+                ]
+            },
+            "page": "3679-3690",
+            "publisher": "Taylor & Francis",
+            "title": "Comparing students by a matching analysis–on early school leaving in dutch cities",
+            "type": "article-journal",
+            "volume": "44"
+        },
+        {
+            "DOI": "10.2908/TGS00111",
+            "author": [
+                {
+                    "family": "Eurostat"
+                }
+            ],
+            "id": "nights",
+            "issued": {
+                "date-parts": [
+                    [
+                        2024
+                    ]
+                ]
+            },
+            "title": "Nights spent at tourist accommodation establishments by NUTS 2 regions",
+            "type": "webpage"
+        },
+        {
+            "URL": "https://unstats.un.org/unsd/methodology/m49/",
+            "author": [
+                {
+                    "family": "United_Nations_Statistics_Division"
+                }
+            ],
+            "id": "unsd",
+            "title": "Standard country or area codes for statistical use (M49)",
+            "type": "webpage"
+        }
+    ],
+    "project_biblios": []
+}

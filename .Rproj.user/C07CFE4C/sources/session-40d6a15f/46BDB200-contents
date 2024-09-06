@@ -1,0 +1,593 @@
+---
+title: "Causes of Early School Leaving in the EU: A Quantitative Analysis"
+format:
+
+  pdf:
+    toc: true
+    toc-title: "Contents"
+    number-sections: true
+    colorlinks: true
+    toc-depth: 2
+    classoption: abstract
+    keep-tex: true
+    
+  html: 
+    toc: true
+    toc-title: "Contents"
+    toc-depth: 2
+    number-sections: true
+    abstract-title: Abstract
+    
+  revealjs: 
+    toc: true
+    toc-title: "Contents"
+    toc-depth: 2
+    number-sections: true
+    abstract-title: Abstract
+  
+
+author:
+  - name: Nicola Scognamiglio
+    email: nscox01@gmail.com
+    
+    
+abstract: > 
+  This study examines the causes of early school leaving (ESL) in the European Union (EU) through a quantitative analysis, employing a multiple regression model to identify key contributing factors. Drawing on comprehensive data and previous research, this analysis investigates the impact of socioeconomic status, educational system characteristics, and individual student attributes on ESL rates across EU member states. The findings reveal that socioeconomic factors, particularly education levels of adults and sectors where people work, significantly influence ESL rates. 
+bibliography: riferimenti/references.bib
+nocite: |
+  @*
+---
+
+```{r}
+#| echo: FALSE
+#| warning: FALSE
+knitr::read_chunk("dataset.R")
+```
+
+```{r librerie}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+```{r dataset completo}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+```{r}
+#| echo: FALSE
+#| warning: FALSE
+knitr::read_chunk("analisi esplorativa.R")
+```
+
+```{r librerie}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+# Introduction
+
+Education is the main factor in the so-called Social Elevator, which is the integration between the socio-economic classes that form the productive fabric of the country. It is therefore the most important element that enables the individual to escape poverty [@nowayback]. In fact, the vast majority of studies have shown that it is especially tertiary education that levels the strata of society. But still, to get to university there is a need to have completed the entire secondary education. For this reason, in the welfare states or at least in nations with the rule of law, which aim at reducing inequality, schooling is compulsory for young people.
+
+Despite the crucial role of education, many students in the European Union still leave school early, failing to complete their secondary education. This phenomenon, known as Early School Leaving (ESL), presents a significant challenge to the goal of reducing social inequality and improving socio-economic mobility within the EU. Understanding the causes of early school leaving in this context is essential for developing effective policies and interventions to keep students engaged and enrolled through the completion of their education.
+
+```{r mappa esl, out.width="100%", fig.cap="Early School Levers in the EU"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+Research has identified several factors that contribute to early school leaving. These factors include academic struggles, negative school experiences, socio-economic background, and school policies such as ability grouping. Students with lower reading levels at the start of secondary education are particularly vulnerable to dropping out. Early educational failures and lack of support for academic difficulties play a significant role in this issue, as do the broader school environment and practices that may alienate or inadequately address the needs of struggling students.
+
+While there are many non-quantifiable factors that influence early school leaving, this study focuses on the causes for which we have data, providing a quantitative analysis of the issue. By examining measurable factors, we aim to offer a clear and evidence-based understanding of the patterns and determinants of early school leaving in the European Union.
+
+Given the complexity and multifaceted nature of early school leaving, it is critical to explore the various underlying causes comprehensively. The next section will review the scientific literature to provide a detailed analysis of these causes, drawing on recent studies and empirical evidence within the European Union context.
+
+# Causes of Early School Leaving in Scientific Literature
+
+To best understand the causes of ESL, a multidisciplinary approach, both theoretical and empirical (wherever possible), is needed. Therefore, we will list all the causes of ESL, which we will then try to translate into explanatory variables in Section 3 to study the phenomenon quantitatively.
+
+## Psychological and Individual Factors
+
+Students with low cognitive ability show a high susceptibility to ESL: lack of achievement and demonstrated poor performance demotivate the individual to continue with schooling [@causesruralarea]. In fact, studies highlight that students with lower reading levels at the onset of second-level education are more prone to dropping out in subsequent years. Early school leaving is often rooted in initial educational failures and academic struggles, emphasizing the necessity for comprehensive educational policies across all sectors [@nowayback].
+
+Yet, early school leaving is influenced not only by academic underachievement but also by the school's response to these challenges. Notably, some students felt neglected in academically engaged schools, while others faced concentrated academic difficulties and misbehavior in specific classes, frequently due to ability grouping practices [@nowayback].
+
+## Cultural and Social Factors
+
+The role of the family is crucial in students' school life, not only because of the economic factor but also because of the cultural factor. If no family member has a college degree, it is very likely that their children will not go to college either. In addition, the children of single parents have a high probability of being ESLs. If one member in the family unit has already left school, the individual being considered will have a high probability of following the same path [@bitsakos2021causes].
+
+## Economic Factors
+
+The risk of students dropping out of school is highest among those who have parents with low levels of education but only if those parents have low incomes [@bitsakos2021causes]. This happens because young people are induced to contribute to family income; this dynamic especially affects working-class boys [@nowayback]. This pattern ends up in a vicious cycle that prevents social climbing: most low-educated individuals are more likely to get a low-income job and so on, especially in a shrinking market.
+
+Turning to the macro level, in fact, low-educated people not only fail to climb out of poverty, but also fail to contribute to the growth of the economic system in which they are immersed.
+
+## Demographic Factors
+
+Higher dropout rates are observed among minority groups, specifically immigrant students. For newcomer students, dropout rates are not linked to mobility or emigration but may be related to factors like age at immigration, language barriers, school experiences, or broader social issues [@nowayback].
+
+Additionally, according to some research, pupils are much less likely to drop out of school if there is more homogeneity within the structure, both economic and ethnic [@causesruralarea]. Moreover, according to @de2012comparing, there are more cases of school dropouts in rural areas than in areas with another degree of urbanization, such as medium and large cities.
+
+# The Quantitative Analysis
+
+The quantitative analysis that you will want to conduct below will be a multiple linear regression model: the goal will be to find significant causes of ESL among demographic and socioeconomic characteristics of the population.
+
+## Data Collection and Characteristicsristics
+
+Each unit analyzed is a NUTS 2 region of the European Union; they may be "Provincies/Provinces" for Belgium, "Comunididades y ciudades autónomas" for Spain, "Régions" for France, "Länder" for Austria, and "Regioni" for Italy. NUTS 2 regions have populations ranging from 800,000 to 3 million, with a few exceptions. If no appropriately sized administrative units exist in a member state, this level is formed by aggregating an appropriate number of smaller and contiguous administrative units. These units thus aggregated are called "nonadministrative units". The current NUTS 2021 classification came into effect on January 1, 2021 and indicates 242 at NUTS level 2 [@nutsexpl].
+
+The year considered for our analysis is 2023 but since there were missing data for certain years and regions, we went back one year at a time until 2018 for the imputation of those data. Regions for which data could not be imputed were excluded from the dataset.
+
+```{r tab.cap="Excluded Regions from the Analysis"}
+#| echo: FALSE
+#| warning: FALSE
+
+kable(excluded)
+```
+
+All data were collected from Eurostat Database.
+
+## Response variable
+
+"Early leavers are defined as individuals aged 18-24 who have completed at most a lower secondary education and were not in further education or training during the four weeks preceding the labour force survey (LFS)" [@eslexpl].
+
+The measure is expressed as a percentage of the total population aged between 18 and 24.
+
+```{r boxplot esl, fig.cap="Box Plot of the Response Variable per Country", out.width="100%"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+## Explanatory variables
+
+### Mean Disposable Income
+
+"The disposable income of private households is the balance of primary income (operating surplus/mixed income plus compensation of employees plus property income received minus property income paid) and the redistribution of income in cash. These transactions comprise social contributions paid, social benefits in cash received, current taxes on income and wealth paid, as well as other current transfers. Disposable income does not include social transfers in kind coming from public administrations or non-profit institutions serving households" [@dispinc].
+
+We took the disposable income and divided for the population, obtaining the mean. The measure is expressed in thousands of euros.
+
+```{r mappa income, out.width="100%", fig.height= 4, fig.cap="Mean Disposable income in the EU"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+```{r scatter income, out.width="100%", fig.height= 3, fig.cap="Scatterplot of Mean Disposable Income vs Early School Leaving"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+A preliminary analysis was conducted to explore the relationship between the dependent variable ESL and the independent variable Mean Disposable Income (MDI) using simple linear regression. Initially, a Box-Cox transformation was employed to identify the most suitable power transformation for the response variable ESL, with the goal of stabilizing variance and achieving normality. This transformation is crucial to meet the assumptions of linear regression and improve model performance.
+
+```{r box_cox_disp_inc, out.width="100%", fig.height= 4, fig.cap="Box-Plot Likelihood of Mean Disposable Income"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+In order to avoid autocorrelation, we randomly selected a sample of 100 observations from the original dataset; it will be done with all the other regression models. The selected data underwent specific transformations: the variable ESL was transformed using a square root transformation to stabilize variance and approximate normality. Meanwhile, MDI was transformed using a logarithm to achieve a more symmetric distribution. With these transformed variables, we fitted a linear model using the sampled dataset and then, to validate the model assumptions, several diagnostic tests were conducted. The Shapiro-Wilk test evaluated the normality of residuals, yielding a p-value greater than 0.05, which indicates that the residuals were approximately normally distributed. The Breusch-Pagan test assessed the homoscedasticity of the residuals, and its results suggested no significant evidence of heteroscedasticity. Additionally, the Durbin-Watson test was used to check for autocorrelation, and the outcome indicated that there was no significant autocorrelation in the residuals.
+
+```{r tests_disp_inc, out.width="100%", tab.cap="Test Results of Regression with Mean Disposable Income"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+The results from the regression analysis reveal that the transformed variable MDI is statistically significant at the 0.05 significance level. However, the R-squared value of the model is 0.07, indicating that only 7% of the variability in ESL is explained by this model, suggesting that there are other factors not taken into consideration. This highlights the potential need for further investigation and inclusion of additional predictors to improve the model's explanatory power.
+
+```{r model_disp_inc, out.width="100%", fig.height= 3}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+### Population Density
+
+Since, according to some studies, most of the ESL are concentrated in rural areas and thus outside the capital cities, we will take into account the population density of the regions concerned.
+
+"The ratio between the annual average population and the land area of the region. The land area concept (excluding inland waters) should be used wherever available; if not available then the total area, including inland waters (area of lakes and rivers) is used" [@density].
+
+The measure is expressed in hundreds of inhabitants per square kilometer.
+
+### Unemployment Rate
+
+" \[...\] unemployment rate represents unemployed persons as a percentage of the economically active population (i.e. labour force or sum of employed and unemployed). The indicator is based on the EU Labour Force Survey. Unemployed persons comprise persons aged 15-74 who were (all three conditions must be fulfilled simultaneously): 1. without work during the reference week; 2. currently available for work; 3. actively seeking work or who had found a job to start within a period of at most three months. The employed persons are those aged 15-64, who during the reference week did any work for pay, profit or family gain for at least one hour, or were not at work but had a job or business from which they were temporarily absent" [@unemployment].
+
+```{r mappa unemployment, out.width="100%", fig.height= 4, fig.cap="Unemployment Rate"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+```{r scatter unemployment, out.width="100%", fig.height= 3, fig.cap="Scatterplot of Unemployment vs Early School Leaving"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+The effect of Unemployment on ESL was investigated by another simple linear regression model, which was again fitted with the square root transformation of ESL as the dependent variable and Unemployment (there was no need for transormation here) as the independent variable, using the same sampled dataset.
+
+Diagnostic tests were performed to assess the validity of the regression model assumptions, which showed that residuals were approximately normally distributed, no evidence of heteroscedasticity, and no significant autocorrelation.
+
+```{r tests_unemployment, out.width="100%", tab.cap="Test Results of Regression with Unemployment"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+The regression results revealed that the predictor Unemployment is statistically significant at the 0.01 significance level, indicating a meaningful impact on ESL. However, similar to the previous model with MDI, the R-squared value was relatively low (0.09), suggesting that unemployment alone does not capture the majority of the variability in ESL.
+
+```{r model_unemployment, out.width="100%", fig.height= 3}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+### Human Resources in Science and Technology
+
+"Human resources in science and technology as a share of the active population in the age group 15-74 at the regional NUTS 2 level. The data shows the active population in the age group 15-74 that is classified as HRST (i.e. having successfully completed an education at the third level or being employed in science and technology) as a percentage of total active population aged 15-74. HRST are measured mainly using the concepts and definitions laid down in the Canberra Manual, OECD, Paris, 1995" [@HRST].
+
+```{r mappa HRST, out.width="100%", fig.height= 4, fig.cap="Human Resources in Science and Technology(%)"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+```{r scatter HRST, out.width="100%", fig.height= 3, fig.cap="Scatterplot of Human Resources in Science and Technology(%) vs Early School Leaving"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+Further analysis was conducted to examine the effect of Human Resources in Science and Technology (HRST) on the same transormation of ESL, using the same sampled dataset.
+
+Once again, diagnostic tests were performed to assess model assumptions. The Shapiro-Wilk test indicated normality of residuals, the Breusch-Pagan test showed homoscedasticity, and the Durbin-Watson test confirmed no significant autocorrelation.
+
+```{r tests_HRST, out.width="100%", tab.cap="Test Results of Regression with Human Resources in Science and Technology"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+The regression results demonstrated that HRST is statistically significant at the 0.001 level, suggesting that the percentage of HRST has a significant effect on ESL proficiency. This time, unlike the previous analyses, the R-squared value was higher (0.25), a substantial improvement.
+
+```{r model_HRST, out.width="100%", fig.height= 3}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+### Over-25s with at most Lower Secondary Education
+
+Since the educational attainment of parents and people in the context are very important for their influence on the pupil, we include the variable of the percentage of over-25s with at most lower secondary education (amLSE).
+
+```{r mappa amLSE, out.width="100%", fig.height= 4, fig.cap="Over-25s with at most Lower Secondary Education(%)"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+```{r scatter amLSE, out.width="100%", fig.height= 3, fig.cap="Scatterplot of Over-25s with at most Lower Secondary Education vs Early School Leaving"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+The regression model performed with amLSE as indipendent variable is statistically significant at the 0.001 level. The R-squared value for amLSE was 0.24, indicating that it explains 24% of the variability in ESL. This also demonstrates a stronger explanatory power compared to MDI and Unemployment.
+
+```{r model_amLSE, out.width="100%", fig.height= 3}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+### Tourism
+
+We created an indicator dividing the nights spent in a tourist accommodation by the population.
+
+"A night spent is each night a guest/tourist (resident or non-resident) actually spends (sleeps or stays) or is registered (his/her physical presence there being unnecessary) in a tourist accommodation establishment" [@nights].
+
+The effect of tourism on ESL was assessed by a linear regression model that showed no statistical significance, with a p-value well above the 0.05 threshold. This indicates that tourism does not have a meaningful impact on z_esl in this model. The R-squared value was also low, further confirming that tourism does not explain a substantial portion of the variability in ESL proficiency.
+
+```{r model_tourism, out.width="100%", fig.height= 3}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+### Weeks of holiday from School
+
+The first dummy we used in the model concerns the weeks the student is away from school. The cut point we took is 10 weeks away from school, through the entire school-year.
+
+```{r mappa holydays_gr_10w, out.width="100%", fig.height= 4, fig.cap="Countries where Weeks of holiday from School are more than 10"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+The regression model revealed that Weeks of holiday from School are statistically significant at the 0.01 level, indicating that the presence of holidays has a meaningful impact on the transformation of the variable ESL. However, the model's R-squared value was 0.07, which shows that it explains only 7% of the variability in ESL.
+
+```{r model_holydays_gr_10w, out.width="100%", fig.height= 3}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+As can be seen from the Kernel Histogram, regions with more than 10 weeks off from school have the longest tail for the ESL variable, probably due to the presence of southern Italy, southern Spain, and some regions in Romania.
+
+```{r graph_holydays_gr_10w, out.width="100%", fig.height= 4, fig.cap="Kernel Histogram Comparing ESL of Regions with more or less than 10 Weeks of Holidays from School "}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+### Southern Europe
+
+The other dummy variable used in the model is the region's membership in the Southern European area. To examine potential differences in the relationship between the rate of early school leavers and European regions, a Chow test was conducted. The Chow test is utilized to investigate whether there exists a significant structural break between the regression model of Southern Europe region and a model with the rest of the regions. This is because historically this region has profoundly different characteristics than other European regions. We used to identify them the division made by the @unsd.
+
+```{r mappa region, out.width="100%", fig.height= 4, fig.cap="European Regions"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+```{r}
+#| echo: FALSE
+#| warning: FALSE
+knitr::read_chunk("dataset.R")
+```
+
+```{r dataset completo}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+```{r}
+#| echo: FALSE
+#| warning: FALSE
+knitr::read_chunk("model.R")
+```
+
+```{r librerie}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+```{r CHOW TEST, tab.cap="Summary of Chow Test"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+The p-value of Chow's test was found to be highly significant, which is why it was decided to adopt Southern Europe as a dummy variable.
+
+{{< pagebreak >}}
+
+```{r}
+#| echo: FALSE
+#| warning: FALSE
+knitr::read_chunk("analisi esplorativa.R")
+```
+
+```{r summary, tab.cap="Summary of the Quantitative Predictors"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+```{r, correlation matrix, out.width="100%", fig.cap="Correlation Plot of Quantitative Predictors"}
+#| echo: FALSE
+```
+
+# Results
+
+```{r}
+#| echo: FALSE
+#| warning: FALSE
+knitr::read_chunk("model.R")
+```
+
+## Multiple Regression Model
+
+The primary objective was to analyze and predict the percentage of early school leavers across various EU regions. To achieve this, a multiple regression model was employed, with the response variable being the percentage of early school leavers. The explanatory variables were selected based on theoretical foundations and prior research indicating their potential impact on early school leaving rates.
+
+First of all, the model parameters were estimated using Ordinary Least Squares (OLS) method and the overall model fit was evaluated using R-squared and adjusted R-squared values.
+
+Moreover, Variance Inflation Factors (VIFs) were calculated to check for multicollinearity among the explanatory variables. Variables with high VIFs were later removed to reduce multicollinearity. Various models were compared using Adjusted RSquared criteria to select the most parsimonious model that provided the best fit to the data. The model coefficients were interpreted to understand the direction and magnitude of the relationships
+
+Finally, residual plots, normality tests and homoschedasticity test were examined to ensure that the residuals were randomly distributed and did not exhibit any patterns.
+
+### Complete Regression
+
+Initially, Early School Leaving was analyzed in relation to all available explanatory variables. It was first decided to center the quantitative explanatory variables (not the dummies, of course) such that they all had for mean 0, to ensure greater interpretability in the results. The multiple regression model was specified as: $$
+\text{Early School Leavers} = \beta_0 + \beta_1 \text{Mean Disposable Income} + \beta_2 \text{Population Density} + $$ $$
++ \beta_3 \text{Unemployment Rate} + \beta_4 \text{Human Resources in Science and Technology} + $$ $$
++ \beta_5 \text{Over 25 with at most Lower Secondary Education}+ \beta_6 \text {Tourism} + $$ $$
++ \beta_7 \text {More than 10 weeks of Holyday from School} + \beta_8 \text {Southern Europe} + \epsilon{_i} $$
+
+{{< pagebreak >}}
+
+We see that the significant covariates at the one-per-thousand level are the percentage of workers working in science and technology, which have a negative effect on school dropout, and the percentage of adults with at most lower secondary education, which has a positive effect instead.
+
+```{r modello multiplo completo con esl}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+In this model, the residuals are symmetrically distributed around zero, with no extreme values suggesting outliers. Furthermore, the leverage statistics, which measure the influence of individual data points on the regression coefficients, do not show any observations with disproportionately high leverage
+
+```{r residualsvsleverage, out.width="100%", fig.height=5 , fig.cap="Residuals vs Leverage"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+The residual diagnostics indicated that the residuals follow a normal distribution, as confirmed by the Normality Tests.
+
+```{r qqplot, out.width="100%", fig.height=4, fig.cap="QQ-Plot"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+```{r normale, out.width="100%", fig.height=4, fig.cap="Kernel Hitogram of Residuals"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+```{r tests, tab.cap="Normality Tests of Residuals"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+To investigate the presence of heteroscedasticity in our regression model, we applied the Breusch-Pagan test to evaluate whether the variance of the residuals from a regression model depends on the values of the dependent variable.
+
+```{r residualsvsfitted, out.width="100%", fig.height=5, fig.cap="Residuals vs Fitted Values"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+The Breusch-Pagan test yielded a test statistic of 20.36 with a corresponding p-value of 0.009, indicating significant evidence of heteroscedasticity at the conventional significance level of 0.05. Since heteroscedasticity is present, it could have lead to inefficient estimates and biased standard errors. Consequently, the assumption of homoscedasticity is violated, and remedial measures are necessary.
+
+```{r breusch, tab.cap="Homoschedasticity Tests of Residuals"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+To address the issue, we employed Feasible Generalized Least Squares (FGLS). First, we estimated the variance of the error terms by regressing the squared residuals from the initial model on the set of independent variables. This step provides an estimate of the predicted variance of the residuals, which we then used to calculate weights for the FGLS model. The weights were computed as the inverse of the predicted variance, allowing us to apply the appropriate transformation to achieve homoscedasticity.
+
+We then refitted the model using these weights to obtain the FGLS estimates. This transformation effectively stabilizes the variance of the error terms, correcting for heteroscedasticity and enhancing the efficiency of the model estimates.
+
+```{r fgls, tab.cap="OLS v FGLS"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+FGLS were successfully corrected for heteroscedasticity as confirmed by the Breusch-Pagan test showing a p-value of 0.486. However, now the residuals deviate from a normal distribution. Additionally, we conducted the Durbin-Watson test to check for autocorrelation in the residuals. The results of this test were significant, suggesting that there is evidence of autocorrelation in the residuals. This result suggests that while FGLS addressed the heteroscedasticity issue, the normality assumption and incorrelation of residuals still requires attention.
+
+```{r fgls_shapiro_bp_dw, tab.cap="Tests for FGLS"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+The significant autocorrelation was attributed to the geographical closeness of the regions in our dataset. This spatial autocorrelation undermined the effectiveness of FGLS in correcting the issues at hand.
+
+```{r redis_map, out.width="100%", fig.cap="Map of Model's Residuals"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+To address both the autocorrelation and non-normality of residuals, we opted to sample the dataset, abandoning the FGLS approach. The sampling aimed to reduce the spatial proximity among observations, which contributed to the observed autocorrelation. Specifically, we selected 100 random observations from the original dataset and fitted a new linear model. The p-value of the Shapiro-Wilk Test was 0.0416, indicating that the residuals still deviate from normality but to a lesser extent than in the full dataset. However heteroscedasticity and autocorrelation are not a significant issue in the model sampled dataset.
+
+```{r sampled_dataset_test, tab.cap="Sample dataset model tests"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+To summarize, in the OLS model applied to the entire dataset density has a small but statistically significant positive effect on ESL, with a coefficient of 0.047 significant at the 10% level. While in the OLS S.D. model applied to a randomly sampled subset of the dataset, the coefficient for MDI increases to 0.357 and is significant at the 1% level. Unemployment also becomes significant in the sampled dataset model, with a coefficient of 0.501 significant at the 1% level.
+
+```{r confronto_tot, tab.cap="OLS v FGLS v OLS SD"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+In all the fitted models, none of the VIF values reach the threshold of 5, which suggests that the level of multicollinearity is generally acceptable. However, the following variables have relatively higher VIF values compared to others, especially in the OLS S.D. model: amLSE which has VIF values close to or above 3 across all models; the number oh weeks away from school also suggest moderate multicollinearity; and finally Southern Region dummy variable has the highest VIF values across all models, particularly in the OLS S.D. model with a VIF of 4.64, indicating moderate but noticeable multicollinearity.
+
+```{r vif, tab.cap="VIFs of Covariates"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+### Regression with Selected Variables
+
+To address these issues, an approach based on the adjusted R-squared criterion was adopted to select the explanatory variables that eventually were only 4: Population Density, Human Resources in Science and Technology, Adults with at most Lower Secondary Education and the Southern Region as dummy variable. This method was chosen to identify a subset of variables that would improve the model's fit while mitigating the detected problems.
+
+```{r best subset, out.width="100%", fig.height= 5, fig.cap="Adjusted Rsquared Best Subset"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+```{r bic, out.width="100%", fig.height= 5, fig.cap="BIC Best Subset"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+The new linear regression model with selected variables is specified as follows: $$
+\text{Early School Leavers} = \beta_0 + \beta_1 \text{Population Density} + \beta_2\text{Human Resources in Science and Technology} + $$ $$+ \beta_3 \text{Over 25 with at most Lower Secondary Education}+\beta_4 \text {Southern Europe} + \epsilon{_i} $$
+
+The intercept is 11.29, indicating the baseline value of ESL when all predictors are zero (which is the mean among all the regions as we centered the covariates). The coefficient for density is 0.06, which is significant at the 5% level. This suggests a positive relationship, where an increase in density is associated with a slight increase in ESL. The coefficient for amLSE is 0.28 and is highly significant, just as HRST, which has a coefficient of -0.15, suggesting a strong negative relationship though. The Southern Region dummy variable shows a large negative coefficient of -5.63, even if the southern countries of EU result in a higher ESL rate.
+
+The model has an adjusted R-squared is 0.4463, which is not that small comparing to the ones of the models we fitted with all the available variables.
+
+```{r modello completo con variabili selezionate}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+There are no outliers or leverage points in this restricted model either.
+
+```{r residualsvsleverage_sel, out.width="100%", fig.height=4, fig.cap="Residuals vs Leverage"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+The residual diagnostics indicated that the residuals followed a normal distribution.
+
+```{r qqplot_sel, out.width="100%", fig.height= 4, fig.cap="QQ-Plot"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+```{r normale_sel, out.width="100%", fig.height= 4, fig.cap="Kernel Hitogram of Residuals"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+```{r tests_sel, tab.cap="Normality Tests of Residuals"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+To evaluate whether the removal of certain predictors significantly affects our regression model, we conducted an F-test for nested models. This test compares the full model, which includes all previous predictors, with the reduced model with selected variables. The F-test assesses whether the exclusion of parameters in the reduced model results in a significant loss of explanatory power. The analysis was performed comparing the residual sums of squares of the two models. The resulting p-value indicated that the removal of the predictors did not significantly diminish the model's fit, suggesting that the reduced model is preferred due to its simplicity and comparable explanatory power.
+
+```{r test_su_un_gruppo_di_parametri, tab.cap="F-test for Nested Models"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+In the revised model, we addressed the issue of heteroscedasticity through standard methods without resorting to FGLS.
+
+```{r residualsvsfitted_sel, out.width="100%", fig.height= 4, fig.cap="Residuals vs Fitted Values"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+```{r breusch_sel, tab.cap="Homoschedasticity Tests of Residuals"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+Despite resolving heteroscedasticity, autocorrelation, particularly related to the geographical closeness of the observations, remained a concern. To tackle this issue, we employed a sampled dataset approach again.
+
+```{r autocorrelazione  (Durbin-Watson test)_sel, tab.cap="Durbin-Watson test"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+```{r redis_map_sel, fig.cap="Map of Model's Residuals"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+In the revised and final model applied to the sampled dataset, the intercept is 11.22, which represents the expected baseline value of ESL when all predictors are average and country is not in the southern region of the EU. The coefficient for density is 0.10, indicating a significant positive association. Similarly, amLSE has a coefficient of 0.27, reflecting a strong positive impact on ESL. The coefficient for HRST is -0.10, showing a significant negative relationship just as the dummy variable Southern Region, which is -5.58.
+
+```{r sampled_dataset_summary, tab.cap="Summary of Sampled Dataset Model with Selected Variables"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+In addition to evaluating the final model's performance, we ran simulations on various sampled datasets to further assess the robustness of our results. The Shapiro-Wilk test p-value exceeded 0.05 in 92 out of 100 sampled datasets, indicating that the normality of residuals was maintained across most samples. Similarly, the Breusch-Pagan test p-value was greater than 0.05 in 76 out of 100 datasets, suggesting that heteroscedasticity was not a significant issue in the majority of cases. The Durbin-Watson test p-value was above 0.05 in 89 out of 100 datasets, confirming that autocorrelation was not a concern in most instances. These findings collectively support the reliability of the final model, demonstrating consistent adherence to the assumptions of normality, homoscedasticity, and independence across different samples.
+
+```{r sampled_dataset_test_sel_for, tab.cap="Simulation Results for Diagnostic Tests"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+Finally, the diagnostic checks confirmed that there were no significant issues with multicollinearity among the predictors in the models. VIF values were obviously smaller that the models fitted with all the variables.
+
+```{r vif_sel, tab.cap="VIFs of Covariates"}
+#| echo: FALSE
+#| warning: FALSE
+```
+
+# Conclusion
+
+This study provides a comprehensive analysis of the factors influencing Early School Leaving (ESL) in the European Union, shedding light on the multifaceted nature of the problem. This analysis reveals that a combination of demographic, socio-economic, cultural, and educational factors contribute to the phenomenon of ESL, thereby reinforcing the critical role of education as a social elevator that promotes socio-economic mobility and reduces inequality.
+
+The percentage of adults over 25 with at most lower secondary education (amLSE) emerged as the most significant predictor of ESL, highlighting the influence of educational attainment within communities. This underscores the need for targeted educational interventions that not only support current students but also address the broader educational environment, including adult education programs.
+
+The negative relationship between HRST and ESL suggests that regions with a higher proportion of the population engaged in science and technology exhibit lower rates of ESL. This indicates the importance of fostering environments that support and encourage careers in science and technology to reduce dropout rates. Educational policies that emphasize STEM (Science, Technology, Engineering, and Mathematics) education can be pivotal in addressing ESL.
+
+The positive association between population density and ESL implies that more densely populated areas, often urban centers, experience higher dropout rates. This may be due to a range of urban-specific challenges such as socio-economic disparities, school quality variations, and other urban stressors. Educational policies must address urban challenges, potentially through increased support for schools in densely populated areas and initiatives that engage students and communities.
+
+Although mean disposable income (MDI) and unemployment were not retained in the final model, their initial analysis suggested that economic factors play a role in ESL. While MDI had a statistically significant relationship with ESL in individual models, the low R-squared values indicate the presence of other influential factors. This points to the complex relationship between economic conditions and education, suggesting that policies aimed at improving economic stability may indirectly impact ESL rates.
+
+The data reveals that Southern European regions perform worse in ESL rates compared to other EU regions, even though the Southern Europe dummy variable shows a negative coefficient. This is due to these regions' poorer performance in other covariates, such as educational attainment and HRST, departing far from the average of other countries. Southern regions have historically faced significant socio-economic challenges, which are reflected in their higher ESL rates.
+
+### References
