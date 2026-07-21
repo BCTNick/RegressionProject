@@ -1,0 +1,13 @@
+﻿.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# Generated reports and slides
+report.pdf
+slides_files/
+*_files/
+*.html
+
+# Downloaded reference PDFs kept locally
+riferimenti/*.pdf
